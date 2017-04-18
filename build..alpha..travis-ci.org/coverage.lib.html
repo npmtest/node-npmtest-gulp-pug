@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-gulp-pug/gulp-pug/index.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-gulp-pug/node_modules/gulp-pug/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-gulp-pug">npmtest-gulp-pug (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-pug/gulp-pug/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-gulp-pug/node_modules/gulp-pug/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">25% <small>(7 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-gulp-pug/gulp-pug/</a> » index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-gulp-pug/node_modules/gulp-pug/</a> &#187; index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -313,49 +315,48 @@ var ext = require('gulp-util').replaceExtension;
 var PluginError = require('gulp-util').PluginError;
 var log = require('gulp-util').log;
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered">function gulpPug(options) {</span>
-<span class="cstat-no" title="statement not covered">  var opts = objectAssign({}, options);</span>
-<span class="cstat-no" title="statement not covered">  var pug = opts.pug || opts.jade || defaultPug;</span>
+module.exports = <span class="fstat-no" title="function not covered" >function gulpPug(options) {</span>
+<span class="cstat-no" title="statement not covered" >  var opts = objectAssign({}, options);</span>
+<span class="cstat-no" title="statement not covered" >  var pug = opts.pug || opts.jade || defaultPug;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  opts.data = objectAssign(opts.data || {}, opts.locals || {});</span>
+<span class="cstat-no" title="statement not covered" >  opts.data = objectAssign(opts.data || {}, opts.locals || {});</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return through.obj(<span class="fstat-no" title="function not covered">function compilePug(file, enc, cb) {</span></span>
-<span class="cstat-no" title="statement not covered">    var data = objectAssign({}, opts.data, file.data || {});</span>
+<span class="cstat-no" title="statement not covered" >  return through.obj(<span class="fstat-no" title="function not covered" >function compilePug(file, enc, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var data = objectAssign({}, opts.data, file.data || {});</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    opts.filename = file.path;</span>
-<span class="cstat-no" title="statement not covered">    file.path = ext(file.path, opts.client ? '.js' : '.html');</span>
+<span class="cstat-no" title="statement not covered" >    opts.filename = file.path;</span>
+<span class="cstat-no" title="statement not covered" >    file.path = ext(file.path, opts.client ? '.js' : '.html');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (file.isStream()) {</span>
-<span class="cstat-no" title="statement not covered">      return cb(new PluginError('gulp-pug', 'Streaming not supported'));</span>
+<span class="cstat-no" title="statement not covered" >    if (file.isStream()) {</span>
+<span class="cstat-no" title="statement not covered" >      return cb(new PluginError('gulp-pug', 'Streaming not supported'));</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (file.isBuffer()) {</span>
-<span class="cstat-no" title="statement not covered">      try {</span>
-<span class="cstat-no" title="statement not covered">        var compiled;</span>
-<span class="cstat-no" title="statement not covered">        var contents = String(file.contents);</span>
-<span class="cstat-no" title="statement not covered">        if (opts.verbose === true) {</span>
-<span class="cstat-no" title="statement not covered">          log('compiling file', file.path);</span>
+<span class="cstat-no" title="statement not covered" >    if (file.isBuffer()) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var compiled;</span>
+<span class="cstat-no" title="statement not covered" >        var contents = String(file.contents);</span>
+<span class="cstat-no" title="statement not covered" >        if (opts.verbose === true) {</span>
+<span class="cstat-no" title="statement not covered" >          log('compiling file', file.path);</span>
         }
-<span class="cstat-no" title="statement not covered">        if (opts.client) {</span>
-<span class="cstat-no" title="statement not covered">          compiled = pug.compileClient(contents, opts);</span>
+<span class="cstat-no" title="statement not covered" >        if (opts.client) {</span>
+<span class="cstat-no" title="statement not covered" >          compiled = pug.compileClient(contents, opts);</span>
         } else {
-<span class="cstat-no" title="statement not covered">          compiled = pug.compile(contents, opts)(data);</span>
+<span class="cstat-no" title="statement not covered" >          compiled = pug.compile(contents, opts)(data);</span>
         }
-<span class="cstat-no" title="statement not covered">        file.contents = new Buffer(compiled);</span>
+<span class="cstat-no" title="statement not covered" >        file.contents = new Buffer(compiled);</span>
       } catch (e) {
-<span class="cstat-no" title="statement not covered">        return cb(new PluginError('gulp-pug', e));</span>
+<span class="cstat-no" title="statement not covered" >        return cb(new PluginError('gulp-pug', e));</span>
       }
     }
-<span class="cstat-no" title="statement not covered">    cb(null, file);</span>
+<span class="cstat-no" title="statement not covered" >    cb(null, file);</span>
   });
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 17:32:12 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 22:01:28 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
